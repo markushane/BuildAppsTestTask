@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="TodayTest.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:cells="clr-namespace:today2.Cells"
+    Title="Gallery">
+    <StackLayout BackgroundColor="Pink">
+        <CollectionView
+            x:Name="ImagesCollectionView"
+            BackgroundColor="Pink"
+            HeightRequest="1000"
+            ItemsSource="{Binding Images}"
+            SelectionChanged="ImagesCollectionView_SelectionChanged"
+            SelectionMode="Single"
+            WidthRequest="1000">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout>
+                        <Image Source="{Binding Url}" />
+                        <Label HorizontalOptions="Center" Text="{Binding Author}" />
+                        <Label HorizontalOptions="Center" Text="{Binding Id}" />
+                        <Label HorizontalOptions="Center" Text="{Binding Size}" />
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <Button
+            x:Name="PopUpButton"
+            BackgroundColor="Black"
+            Clicked="PopUpButton_Clicked"
+            HorizontalOptions="Center"
+            Text="Click to open pop-up"
+            TextColor="Pink"
+            VerticalOptions="EndAndExpand" />
+
+    </StackLayout>
+</ContentPage>

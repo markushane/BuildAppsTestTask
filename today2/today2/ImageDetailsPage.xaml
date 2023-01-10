@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="today2.ImageDetailsPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:pinch="clr-namespace:Xamarin.Forms.PinchZoomImage;assembly=Xamarin.Forms.PinchZoomImage"
+    Title="ImageDetails">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="Pink">
+            <CarouselView
+                x:Name="ImagesCarouselView"
+                BackgroundColor="Pink"
+                HeightRequest="1000"
+                ItemsSource="{Binding Images}"
+                WidthRequest="1000">
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                            <pinch:PinchZoom>
+                                <pinch:PinchZoom.Content>
+                                    <Image Source="{Binding Url}" />
+                                </pinch:PinchZoom.Content>
+                            </pinch:PinchZoom>
+                            <Label HorizontalOptions="Center" Text="{Binding Author}" />
+                            <Label HorizontalOptions="Center" Text="{Binding Id}" />
+                            <Label HorizontalOptions="Center" Text="{Binding Size}" />
+                        </StackLayout>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
